@@ -12,6 +12,10 @@ import javax.comm.UnsupportedCommOperationException;
 
 public class SerialBean {
 	private static String portName;
+	private int rate;
+	private int dataBits;
+	private int stopBits;
+	private int parity;
 	private static OutputStream out;
 	private static InputStream in;
 
@@ -22,6 +26,15 @@ public class SerialBean {
 
 	public SerialBean(int portID) {
 		portName = "COM" + portID;
+	}
+
+	public SerialBean(int portID, int rate, int dataBits, int stopBits,
+			int parity) {
+		portName = "COM" + portID;
+		this.rate = rate;
+		this.dataBits = dataBits;
+		this.stopBits = stopBits;
+		this.parity = parity;
 	}
 
 	public int Initialize() {
@@ -82,7 +95,7 @@ public class SerialBean {
 	}
 
 	public void ClosePort() {
-		//RT.stop();
+		// RT.stop();
 		serialPort.close();
 	}
 }
