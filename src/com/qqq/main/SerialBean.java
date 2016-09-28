@@ -59,8 +59,10 @@ public class SerialBean {
 				return InitFail;
 			}
 			try {
-				serialPort.setSerialPortParams(9600, SerialPort.DATABITS_8,
-						SerialPort.STOPBITS_1, SerialPort.PARITY_NONE);
+				// serialPort.setSerialPortParams(9600, SerialPort.DATABITS_8,
+				// SerialPort.STOPBITS_1, SerialPort.PARITY_NONE);
+				serialPort
+						.setSerialPortParams(rate, dataBits, stopBits, parity);
 			} catch (UnsupportedCommOperationException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

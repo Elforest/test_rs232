@@ -1,5 +1,7 @@
 package com.qqq.main;
 
+import javax.comm.SerialPort;
+
 public abstract class Main {
 
 	/**
@@ -7,9 +9,11 @@ public abstract class Main {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		SerialBean SB = new SerialBean(3);
+		// SerialBean SB = new SerialBean(3);
+		SerialBean SB = new SerialBean(3, 9600, SerialPort.DATABITS_8,
+				SerialPort.STOPBITS_1, SerialPort.PARITY_NONE);
 		String Msg = "";
-		//System.out.println(SB.Initialize());
+		// System.out.println(SB.Initialize());
 		SB.Initialize();
 		// for (int i = 5; i <= 10; i++) {
 		// Msg = SB.ReadPort(i);
@@ -21,10 +25,10 @@ public abstract class Main {
 			Msg = SB.ReadPort(14);
 			System.out.println(Msg);
 			for (int i = 0; i < Msg.length(); i++) {
-				System.out.print((int)Msg.charAt(i));
+				System.out.print((int) Msg.charAt(i));
 				System.out.print(" ");
 			}
-			//SB.ClosePort();
+			// SB.ClosePort();
 			// if (Msg.length() == 59) {
 			// String sys = Msg.substring(41, 44);
 			// System.out.println("SYS:" + sys);
