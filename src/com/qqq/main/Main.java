@@ -20,7 +20,7 @@ public abstract class Main {
 		// System.out.println(Msg);
 		// //SB.WritePort("Reply:" + Msg);
 		// }
-		SB.WritePort("abc");
+		// SB.WritePort("abc");
 		while (true) {
 			Msg = SB.ReadPort(14);
 			System.out.println(Msg);
